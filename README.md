@@ -4,10 +4,8 @@ A wrapper around [OpenCV](https://opencv.org/) python library and support **Wind
 
 Usage
 ---
----
 I've update later.
 
 Required Python modules
----
 ---
 `requirements.txt`

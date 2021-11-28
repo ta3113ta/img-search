@@ -70,7 +70,7 @@ def image_search_numLoop(image, timesample, maxSamples, precision=0.8):
         print(image + " not found, waiting")
         time.sleep(timesample)
         pos = image_search(image, precision)
-        count = count + 1
+        count += 1
         if count > maxSamples:
             break
     return pos
@@ -93,10 +93,7 @@ def image_search_count(image, precision=0.9):
     w, h = template.shape[::-1]
     res = cv2.matchTemplate(img_gray, template, cv2.TM_CCOEFF_NORMED)
     loc = np.where(res >= precision)
-    count = 0
-    for pt in zip(*loc[::-1]):  # Swap columns and rows
-        count = count + 1
-    return count
+    return sum(1 for _ in zip(*loc[::-1]))
 
 
 def r(num, rand):
